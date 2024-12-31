@@ -9,6 +9,10 @@ const DATA_FILE = path.join(__dirname, 'access_count.json');
 
 app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.get('/access', (req, res) => {
     let count = 0;
     if (fs.existsSync(DATA_FILE)) {
